@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="admin-login.css">
+</head>
+
+<body>
+    <nav>
+        <h4>MANIPAL MULTI-SPECALITY HOSPITAL</h4>
+        <ul class="sidebar">
+            <li onclick="hidesidebar()">
+                <a href="#">
+                    <img src="C:\Users\LENOVO\Desktop\html projects\menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png">
+                </a>
+            </li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Payment Request</a></li>
+            <li><a href="#">Add Doctor</a></li>
+            <li><a href="#">Update details of Doctor</a></li>
+            <li><a href="#">Records</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li onclick=showsidebar()>
+                <a href="#">
+                    <img src="C:\Users\LENOVO\Desktop\html projects\menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png"></a>
+            </li>
+        </ul>
+    </nav>
+    <script>
+        function showsidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex';
+        }
+        function hidesidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+        }
+    </script>
+    <div class="admin-login">
+        <img src="C:\Users\LENOVO\Desktop\html projects\Hospital project\1745734625464.jpg">
+        <form id="loginForm">
+            <h2>Admin Login</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="email" class="glass-input" placeholder="Enter the Username" required>
+
+            <label for="">Password:</label>
+            <input type="password" placeholder="Enter the password" class="glass-input" required>
+            <button type="submit" id="password" class="glass-input">Login</button>
+        </form>
+    </div>
+    <script>
+    // Sample registered users (in real applications this is checked on server)
+    const registeredUsers = [
+      { email: "user1@example.com", password: "123456" },
+      { email: "Prasanna123", password: "Prasanna123" }
+    ];
+
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // prevent form from submitting
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      // Check if user is registered
+      const userFound = registeredUsers.find(user => user.email === email && user.password === password);
+
+      if (userFound) {
+        alert("Login successful!");
+      } else {
+        alert("You are not registered or credentials are incorrect!");
+      }
+    });
+  </script>
+</body>
+
+</html>

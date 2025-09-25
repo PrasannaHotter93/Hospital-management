@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient register form </title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(premium_photo-1673953509975-576678fa6710.jpeg);
+        }
+
+        .container {
+            /*background-color: white;*/
+            padding: 30px;
+            /*border-radius:10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);*/
+            width: 130%;
+            max-width: 600px;
+            /*backdrop-filter: blur(7px);*/
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .from-group {
+            margin-bottom: 15px;
+            backdrop-filter: blur(7px);
+            color:black;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            /*margin-bottom: 5px;*/
+        }
+        .upload input{
+            border-color: white;
+            padding-bottom: 3px;;
+            margin-bottom: 13px;;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 12px;
+            border: 1px solid lightslategray;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            border-color: greenyellow;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color:#1e2b79;
+            color:white;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor:pointer;
+        }
+
+       /* button:hover{
+    background-color: blue;
+}*/
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>PATIENT REGISTER FORM</h1>
+        <form action="#" method="post">
+            <div class="from-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <!--<div class="from-group">
+                <label for="name">Middle name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your Middle name" required>
+            </div>!-->
+
+            <div class="from-group">
+                <label for="DOB">DOB:</label>
+                <input type="date" id="name" name="name" placeholder="Enter the date of birth " required>
+            </div>
+            <div class="from-group">
+                <label for="GENDER">GENDER</label>
+                <!--- <label for="male">Male</label>
+                <input type="radio"  name="MALE" requried>
+                <label for="male">Female</label>
+                <input type="radio" name="MALE" required>-->
+                <select>
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                    <option value="2">Transgender</option>
+                </select>
+            </div>
+            <div class="from-group">
+                <label for="phone">BLOOD GROUP</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your blood group" required>
+            </div>
+            <!---<div class="from-group">
+                <label for="name">Departure city</label>
+                <!--<input type="" id="name" name="name" placeholder="Enter last name" required>!-->
+            <!--<select id="class" name="class" required>
+                <select>
+                    <option value="0">--select--</option>
+                    <option value="1">BLR</option>
+                    <option value="2">DLR</option>
+                    <option value="3">BOM</option>
+                </select required>
+
+            </div>
+            <div class="from-group">
+                <label for="name">Destination city</label>
+                <select>
+                    <option value="0">--select--</option>
+                    <option value="1">BLR</option>
+                    <option value="2">DLR</option>g
+                    <ption value="3">BOM</ption>
+                </select requried>
+            </div>!-->
+            <div class="from-group">
+                <label for="email">Email</label>
+                <input type="email" id="date" name="date" placeholder="Enter the email address" required>
+            </div>
+            <!---<div class="from-group">
+                <label for="class">Class:</label>
+                <select id="class" name="class" required>
+                <option value="economy">Economy</option>
+                <option value="bussiness">Bussiness</option>
+                <option value="First class">First class</option>    
+                </select required>
+            </div>!-->
+            <div class="from-group">
+                <label for="MOBILE">MOBILE-NO</label>
+                <input type="tel" id="passengers" name="passengers" min="1" max="10"
+                    placeholder="Enter the your mobile number" required>
+            </div>
+            <div class="from-group">
+                <label for="MOBILE">ADDRESS</label>
+                <input type="text" id="passengers" name="passengers" min="1" max="10" placeholder="Enter your address"
+                    required>
+            </div>
+            <div class="from-group">
+                <label for="PRIVATE">PRIVATE/CGHS</label>
+                <input type="text" id="passengers" name="passengers" min="1" max="10" placeholder="Enter the CGHS ID" required>
+            </div>
+            <div class="upload">
+                <label for="upload">Upload card picture:</label>
+                <input type="file" required>
+            </div>
+            <div class="from-group">
+                <button type="submit" onclick="validateForm()">REGISTER</button>    
+            </div>
+        </form>
+    </div>
+    <div id="notification" class="notification"></div>
+    <script>
+        function validateForm() {
+  const name = document.getElementById("name").value.trim();
+  const notification = document.getElementById("notification");
+
+  if (name === "") {
+    notification.textContent = "❌ Please enter your name.";
+    notification.className = "Notification error";
+  } else {
+    notification.textContent = "✅ Submitted successfully!";
+    notification.className = "Notification success";
+  }
+
+  notification.style.display = "block";
+
+  setTimeout(() => {
+    notification.style.display = "none";
+  }, 3000);
+
+  const password = document.getElementById("password").value.trim();
+  /*const notification = document.getElementById("notification");*/
+
+  if(password === ""){
+    notification.textContent="❌ Please enter your passowrd.";
+    notification.className = "Notification Error";
+  }else{
+    notification.textContent="✅ Submitted successfully!";
+    notification.className = "Notification Success";
+  }
+  notification.style.display = "block";
+
+  setTimeout(() => {
+    notification.style.display = "none";
+  },3000);
+}
+    </script>
+</body>
+
+</html>
